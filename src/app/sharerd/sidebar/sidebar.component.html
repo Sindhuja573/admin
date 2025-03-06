@@ -1,0 +1,38 @@
+<div class="layout-container">
+  <div class="sidebar">
+    <div class="logo">
+      <h3>Become A Skiller</h3>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a routerLink="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+
+        <li class="has-submenu">
+          <a (click)="toggleMasters()">
+            <i class="fas fa-cogs"></i> Masters <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul *ngIf="showMasters">
+            <li><a routerLink="/masters/company-enrollment">Company Enrollment Subscription</a></li>
+            <li><a routerLink="masters/skillset-categories">Skillset Categories</a></li>
+            <li><a routerLink="/masters/role-categories">Role Categories</a></li>
+            <li><a routerLink="/masters/account-type">Account Type</a></li>
+            <li><a routerLink="/masters/categories">Categories</a></li>
+            <li><a routerLink="/masters/country-master">Country Master</a></li>
+            <li><a routerLink="/masters/document-type">Document Type</a></li>
+            <li><a routerLink="/masters/education-course">Education Course Master</a></li>
+            <li><a routerLink="/masters/education-master">Education Master</a></li>
+            <li><a routerLink="/masters/profile-type">Profile Type</a></li>
+          </ul>
+        </li>
+
+        <!-- Logout Link -->
+        <li><a (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="docs-section">
+      <a routerLink="/docs">Docs & Components</a>
+    </div>
+  </div>
+</div>

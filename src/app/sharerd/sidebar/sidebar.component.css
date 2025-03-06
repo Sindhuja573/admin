@@ -1,0 +1,81 @@
+
+
+.logo {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin: 5px 0;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0a1948;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Fix the sidebar itself */
+  top: 0;
+  left: 0;
+}
+
+.nav-menu {
+  position: sticky; /* Fix the nav menu inside the sidebar */
+  top: 0;
+  background-color: #0a1948;
+  z-index: 100;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: #cfd8dc;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+  background-color: #1c2a4d;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  background-color: #1f2a4a;
+  color: #fff;
+  border-left: 4px solid #007bff;
+}
+
+.has-submenu ul {
+  padding-left: 20px;
+  background-color: #0e1733;
+}
+
+.has-submenu ul li {
+  padding: 5px 0;
+}
+
+.docs-section {
+  padding: 10px 20px;
+  text-align: center;
+  border-top: 1px solid #394867;
+}
+
+.docs-section a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}

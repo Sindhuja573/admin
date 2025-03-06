@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f6fa;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-box {
+    display: flex;
+    width: 900px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .left-box {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .right-box {
+    flex: 1;
+    background: #007bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .right-box .illustration {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .social-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .google-btn {
+    background: #ffffff;
+    border: 1px solid #ddd;
+  }
+  
+  .facebook-btn {
+    background: #3b5998;
+    color: white;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .forgot-password {
+    display: block;
+    text-align: right;
+    margin: 10px 0;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .signup-text {
+    margin-top: 10px;
+  }
+  

@@ -6,15 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'https://dev-skiller-api.azurewebsites.net/api/Authentication';
 
-  constructor(private http: HttpClient) {}
+  private baseUrl = 'https://dev-skiller-api.azurewebsites.net/api/Authentication';
 
-  register(payload: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/UserRegistration`, payload);
+  constructor(private http: HttpClient) { }
+
+  register(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/UserRegistration`, data);
   }
 
-  login(payload: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/UserLogin`, payload);
+  login(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/UserLogin`, data);
   }
 }

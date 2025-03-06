@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="header">
+      <h3>Skillset Category</h3>
+      <button (click)="addCategory()">+ Add Skillset Category</button>
+    </div>
+  
+    <div class="filters">
+      <input type="text" placeholder="Search Skillset Category" [(ngModel)]="searchTerm">
+      <select>
+        <option>Select a Skillset category</option>
+        <option *ngFor="let cat of skillsetCategories">{{ cat.category }}</option>
+      </select>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Category</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of skillsetCategories; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ category.category }}</td>
+          <td>{{ category.name }}</td>
+          <td><span class="status" [ngClass]="category.status.toLowerCase()">{{ category.status }}</span></td>
+          <td>
+            <button (click)="editCategory(category)">✏️</button>
+            <button (click)="deleteCategory(category.id)">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

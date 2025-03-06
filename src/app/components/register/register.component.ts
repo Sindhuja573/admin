@@ -1,44 +1,44 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../sevices/auth.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
-  message: string = '';
+  hidePassword = true;
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
-    this.registerForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      platform: [0],
-      deviceId: ['web']
+  registerForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    platform: [0],
+    deviceId: ['web']
+  });
+
+  message = '';
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+
+  register() {
+    if (this.registerForm.invalid) {
+      return;
+    }
+    this.authService.register(this.registerForm.value).subscribe({
+      next: (res) => {
+        if (res.status === false && res.message.includes('already exist')) {
+          this.message = 'User already exists. Please login.';
+        } else {
+          this.message = 'Registration successful!';
+          setTimeout(() => this.router.navigate(['/login']), 2000);
+        }
+      },
+      error: () => this.message = 'Registration failed. Try again.'
     });
   }
 
-  onSubmit() {
-    this.authService.register(this.registerForm.value).subscribe({
-      next: (res) => {
-        if (res.status === false && res.message === 'User already exist, kindly Login an account') {
-          this.message = res.message;
-          setTimeout(() => this.router.navigate(['/login']), 2000);
-        } else {
-          this.message = 'Registration successful! Redirecting to Dashboard...';
-          setTimeout(() => this.router.navigate(['/admin-dashboard']), 2000);
-        }
-      },
-      error: (err) => {
-        this.message = 'Something went wrong!';
-      }
-    });
+  togglePassword() {
+    this.hidePassword = !this.hidePassword;
   }
 }
